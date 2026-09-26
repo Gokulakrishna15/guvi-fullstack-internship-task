@@ -1,7 +1,8 @@
 # UserHub — Full Stack User Management System
 
 > GUVI Internship Assignment — Register → Login → Profile  
-> MySQL · MongoDB · Redis · PHP · jQuery AJAX · Bootstrap 5
+> MySQL · MongoDB · Redis · PHP · jQuery AJAX · Bootstrap 5  
+> 🌐 **Live Demo (AWS EC2):** [http://15.252.18.248/](http://15.252.18.248/)
 
 ---
 
@@ -134,12 +135,9 @@ Logout   → Redis DEL session:{token} → Clear localStorage
 
 // Response (200)
 {
-  "success": true,
-  "message": "Login successful.",
-  "data": {
-    "token": "a1b2c3...64-char-hex",
-    "user": { "userId": 1, "username": "john", "email": "john@example.com" }
-  }
+  "status": "success",
+  "token": "a1b2c3...64-char-hex",
+  "user": { "userId": 1, "username": "john", "email": "john@example.com" }
 }
 ```
 
@@ -149,7 +147,7 @@ Logout   → Redis DEL session:{token} → Clear localStorage
 { "action": "logout" }
 
 // Response (200)
-{ "success": true, "message": "Logged out successfully." }
+{ "status": "success", "message": "Logged out successfully." }
 ```
 
 ### `GET /php/profile.php`
