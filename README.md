@@ -8,7 +8,7 @@
 ## 📁 Folder Structure
 
 ```
-klaritilms/
+guvi-internship-task/
 ├── assets/                  # Static assets (images, icons — placeholder)
 ├── css/
 │   └── style.css            # Global stylesheet
@@ -52,7 +52,7 @@ klaritilms/
 ## ⚡ Setup Instructions
 
 ### 1. Clone / Place Files
-Ensure all files are placed in your web server's document root (e.g., `htdocs/klaritilms/` for XAMPP).
+Ensure all files are placed in your web server's document root (e.g., `htdocs/guvi-internship-task/` for XAMPP).
 
 ### 2. MySQL Database
 ```bash
@@ -71,7 +71,7 @@ redis-server
 
 ### 5. PHP Dependencies (MongoDB Library)
 ```bash
-cd /path/to/klaritilms
+cd /path/to/guvi-internship-task
 composer install
 ```
 This installs `mongodb/mongodb` from the `composer.json`.
@@ -88,7 +88,7 @@ Edit `php/config.php` if your database credentials differ from defaults:
 php -S localhost:8000
 
 # Or use XAMPP/WAMP/MAMP and access via:
-# http://localhost/klaritilms/
+# http://localhost/guvi-internship-task/
 ```
 
 ---
