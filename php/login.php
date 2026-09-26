@@ -50,10 +50,13 @@ $pdo = getMySQLConnection();
 $stmt = $pdo->prepare(
     'SELECT id, username, email, password
      FROM users
-     WHERE email = :id OR username = :id
+     WHERE email = :email OR username = :username
      LIMIT 1'
 );
-$stmt->execute([':id' => $identifier]);
+$stmt->execute([
+    ':email'    => $identifier,
+    ':username' => $identifier
+]);
 $user = $stmt->fetch();
 
 if (!$user) {
