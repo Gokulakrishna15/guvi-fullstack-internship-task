@@ -1,0 +1,387 @@
+/* ══════════════════════════════════════════════
+   User Management System — Global Stylesheet
+   Bootstrap 5 enhanced + custom overrides
+   ══════════════════════════════════════════════ */
+
+/* ── Google Font ── */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+/* ── CSS Variables ── */
+:root {
+  --primary:    #4285F4;
+  --primary-dk: #3367D6;
+  --secondary:  #34A853;
+  --danger:     #EA4335;
+  --warning:    #FBBC05;
+  --dark:       #1a1a2e;
+  --darker:     #16213e;
+  --body-bg:    #f0f2f5;
+  --card-bg:    #ffffff;
+  --text:       #2d3436;
+  --text-muted: #636e72;
+  --radius:     12px;
+  --shadow:     0 4px 24px rgba(0,0,0,0.08);
+  --shadow-lg:  0 8px 40px rgba(0,0,0,0.12);
+  --transition: all 0.3s cubic-bezier(.4,0,.2,1);
+}
+
+/* ── Base ── */
+* { margin: 0; padding: 0; box-sizing: border-box; }
+
+body {
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+  background: var(--body-bg);
+  color: var(--text);
+  min-height: 100vh;
+  line-height: 1.6;
+}
+
+a { color: var(--primary); text-decoration: none; transition: var(--transition); }
+a:hover { color: var(--primary-dk); }
+
+/* ══════════════════════════
+   Landing Page (index.html)
+   ══════════════════════════ */
+.landing-hero {
+  min-height: 100vh;
+  background: linear-gradient(135deg, var(--dark) 0%, var(--darker) 50%, #0a3d62 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: relative;
+  overflow: hidden;
+}
+
+.landing-hero::before {
+  content: '';
+  position: absolute;
+  width: 600px; height: 600px;
+  background: radial-gradient(circle, rgba(66,133,244,0.15) 0%, transparent 70%);
+  top: -100px; right: -100px;
+  border-radius: 50%;
+  animation: float 8s ease-in-out infinite;
+}
+
+.landing-hero::after {
+  content: '';
+  position: absolute;
+  width: 400px; height: 400px;
+  background: radial-gradient(circle, rgba(52,168,83,0.12) 0%, transparent 70%);
+  bottom: -80px; left: -80px;
+  border-radius: 50%;
+  animation: float 10s ease-in-out infinite reverse;
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0) scale(1); }
+  50% { transform: translateY(-30px) scale(1.05); }
+}
+
+.landing-content {
+  text-align: center;
+  position: relative;
+  z-index: 1;
+  padding: 2rem;
+}
+
+.landing-content h1 {
+  font-size: 3.5rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  letter-spacing: -1px;
+}
+
+.landing-content h1 span {
+  background: linear-gradient(90deg, var(--primary), var(--secondary));
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.landing-content p {
+  font-size: 1.25rem;
+  color: rgba(255,255,255,0.7);
+  max-width: 500px;
+  margin: 0 auto 2.5rem;
+}
+
+.landing-btns {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* ══════════════════════════
+   Auth Pages (login/register)
+   ══════════════════════════ */
+.auth-wrapper {
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  padding: 2rem 1rem;
+}
+
+.auth-wrapper.login-bg {
+  background: linear-gradient(135deg, #0a3d62 0%, var(--dark) 100%);
+}
+
+.auth-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow-lg);
+  width: 100%;
+  max-width: 460px;
+  padding: 2.5rem;
+  animation: slideUp 0.5s ease;
+}
+
+@keyframes slideUp {
+  from { opacity: 0; transform: translateY(30px); }
+  to   { opacity: 1; transform: translateY(0); }
+}
+
+.auth-card .brand {
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.auth-card .brand h2 {
+  font-size: 1.75rem;
+  font-weight: 700;
+  color: var(--dark);
+}
+
+.auth-card .brand p {
+  color: var(--text-muted);
+  font-size: 0.9rem;
+  margin-top: 0.25rem;
+}
+
+/* ══════════════════════════
+   Profile / Dashboard Page
+   ══════════════════════════ */
+.profile-navbar {
+  background: var(--dark) !important;
+  box-shadow: 0 2px 10px rgba(0,0,0,0.15);
+}
+
+.profile-navbar .navbar-brand {
+  font-weight: 700;
+  font-size: 1.3rem;
+  color: #fff !important;
+}
+
+.profile-navbar .navbar-brand span {
+  color: var(--primary);
+}
+
+.profile-wrapper {
+  padding: 2.5rem 1rem;
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.profile-header {
+  background: linear-gradient(135deg, var(--dark), var(--darker));
+  border-radius: var(--radius);
+  padding: 2.5rem;
+  color: #fff;
+  margin-bottom: 2rem;
+  position: relative;
+  overflow: hidden;
+  box-shadow: var(--shadow);
+}
+
+.profile-header::after {
+  content: '';
+  position: absolute;
+  width: 200px; height: 200px;
+  background: radial-gradient(circle, rgba(66,133,244,0.2) 0%, transparent 70%);
+  top: -50px; right: -50px;
+  border-radius: 50%;
+}
+
+.profile-avatar {
+  width: 80px; height: 80px;
+  border-radius: 50%;
+  background: var(--primary);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2rem;
+  font-weight: 700;
+  color: #fff;
+  margin-bottom: 1rem;
+  border: 3px solid rgba(255,255,255,0.2);
+}
+
+.profile-header h3 {
+  font-weight: 700;
+  margin-bottom: 0.25rem;
+}
+
+.profile-header p {
+  opacity: 0.8;
+  font-size: 0.95rem;
+}
+
+.profile-card {
+  background: var(--card-bg);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  padding: 2rem;
+  margin-bottom: 1.5rem;
+}
+
+.profile-card h5 {
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 1.5rem;
+  padding-bottom: 0.75rem;
+  border-bottom: 2px solid var(--body-bg);
+}
+
+/* ══════════════════════════
+   Form Enhancements
+   ══════════════════════════ */
+.form-floating > .form-control {
+  border: 2px solid #e9ecef;
+  border-radius: 8px;
+  padding: 1rem 0.75rem;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.form-floating > .form-control:focus {
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(66,133,244,0.15);
+}
+
+.form-floating > label {
+  color: var(--text-muted);
+}
+
+/* ══════════════════════════
+   Buttons
+   ══════════════════════════ */
+.btn-primary {
+  background: var(--primary);
+  border-color: var(--primary);
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  font-size: 0.95rem;
+  transition: var(--transition);
+}
+
+.btn-primary:hover, .btn-primary:focus {
+  background: var(--primary-dk);
+  border-color: var(--primary-dk);
+  box-shadow: 0 4px 15px rgba(66,133,244,0.35);
+  transform: translateY(-1px);
+}
+
+.btn-outline-light {
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-outline-light:hover {
+  transform: translateY(-1px);
+  box-shadow: 0 4px 15px rgba(255,255,255,0.2);
+}
+
+.btn-success {
+  background: var(--secondary);
+  border-color: var(--secondary);
+  border-radius: 8px;
+  padding: 0.6rem 1.5rem;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+.btn-success:hover {
+  background: #2d9649;
+  box-shadow: 0 4px 15px rgba(52,168,83,0.35);
+  transform: translateY(-1px);
+}
+
+.btn-danger {
+  border-radius: 8px;
+  font-weight: 600;
+  transition: var(--transition);
+}
+
+/* ══════════════════════════
+   Alert / Toast
+   ══════════════════════════ */
+#alert-box, .alert-box {
+  display: none;
+  border-radius: 8px;
+  font-size: 0.9rem;
+  font-weight: 500;
+  animation: slideUp 0.3s ease;
+}
+
+/* ══════════════════════════
+   Loader / Spinner
+   ══════════════════════════ */
+.btn .spinner-border {
+  width: 1rem; height: 1rem;
+  border-width: 2px;
+  margin-right: 0.5rem;
+}
+
+.page-loader {
+  position: fixed;
+  inset: 0;
+  background: var(--body-bg);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 9999;
+  transition: opacity 0.3s;
+}
+
+.page-loader.hide {
+  opacity: 0;
+  pointer-events: none;
+}
+
+/* ══════════════════════════
+   Password Strength Indicator
+   ══════════════════════════ */
+.password-strength {
+  height: 4px;
+  border-radius: 2px;
+  background: #e9ecef;
+  margin-top: 0.5rem;
+  overflow: hidden;
+}
+
+.password-strength .bar {
+  height: 100%;
+  width: 0;
+  border-radius: 2px;
+  transition: width 0.3s, background 0.3s;
+}
+
+.password-strength .bar.weak      { width: 33%;  background: var(--danger); }
+.password-strength .bar.medium    { width: 66%;  background: var(--warning); }
+.password-strength .bar.strong    { width: 100%; background: var(--secondary); }
+
+/* ══════════════════════════
+   Responsive Tweaks
+   ══════════════════════════ */
+@media (max-width: 576px) {
+  .landing-content h1 { font-size: 2.2rem; }
+  .auth-card { padding: 1.75rem; }
+  .profile-header { padding: 1.5rem; }
+  .profile-card { padding: 1.25rem; }
+}
